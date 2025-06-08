@@ -39,8 +39,8 @@ Before running this application, make sure you have the following installed:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/your-project-name.git
-cd your-project-name
+git clone git@github.com:rohit2525/weatherapp.git
+cd weatherapp
 ```
 
 2. Build and run with Docker Compose:
@@ -53,7 +53,6 @@ docker-compose up --build
 
 - Frontend: http://localhost:3000
 - Backend API: http://localhost:8080
-- Database: localhost:5432 (if using PostgreSQL)
 
 ### Manual Setup
 
@@ -62,7 +61,7 @@ docker-compose up --build
 1. Navigate to the backend directory:
 
 ```bash
-cd backend
+cd Weather
 ```
 
 2. Install dependencies and run:
@@ -72,35 +71,25 @@ cd backend
 ./mvnw spring-boot:run
 ```
 
-Or if using Gradle:
-
-```bash
-./gradlew build
-./gradlew bootRun
-```
 
 #### Frontend Setup
 
 1. Navigate to the frontend directory:
 
 ```bash
-cd frontend
+cd weather-ui
 ```
 
 2. Install dependencies:
 
 ```bash
 npm install
-# or
-yarn install
 ```
 
 3. Start the development server:
 
 ```bash
 npm start
-# or
-yarn start
 ```
 
 ## 🐳 Docker Configuration
@@ -109,84 +98,38 @@ yarn start
 
 - **app**: Spring Boot backend application
 - **frontend**: React frontend application
-- **database**: PostgreSQL/MySQL database
-- **redis**: Redis cache (if applicable)
 
 ### Environment Variables
 
 Create a `.env` file in the root directory:
 
 ```env
-# Database
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=your_database_name
-DB_USERNAME=your_username
-DB_PASSWORD=your_password
+SPRING_PROFILES_ACTIVE=prod
+WEATHER_API_KEY=d2929e9483efc82c82c32ee7e02d563e
 
-# JWT
-JWT_SECRET=your_jwt_secret_key
-JWT_EXPIRATION=86400000
-
-# API
-API_BASE_URL=http://localhost:8080
-
-# Frontend
-REACT_APP_API_URL=http://localhost:8080/api
 ```
 
 ## 📁 Project Structure
 
-```
-project-root/
-├── backend/
-│   ├── src/
-│   │   ├── main/
-│   │   │   ├── java/com/yourcompany/yourapp/
-│   │   │   │   ├── config/
-│   │   │   │   ├── controller/
-│   │   │   │   ├── dto/
-│   │   │   │   ├── entity/
-│   │   │   │   ├── repository/
-│   │   │   │   ├── service/
-│   │   │   │   └── YourAppApplication.java
-│   │   │   └── resources/
-│   │   │       ├── application.yml
-│   │   │       └── data.sql
-│   │   └── test/
-│   ├── Dockerfile
-│   └── pom.xml / build.gradle
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   ├── utils/
-│   │   ├── App.js
-│   │   └── index.js
-│   ├── Dockerfile
-│   └── package.json
-├── docker-compose.yml
-└── README.md
+```weatherapp/               <-- Git repository root
+├── Weather/              <-- Java Spring Boot backend
+│   ├── ...
+│   └── Dockerfile
+├── weather-ui/           <-- React frontend
+│   ├── ...
+│   └── Dockerfile
+├── docker-compose.yml    <-- Multi-service setup
+├── .env                  <-- Environment variables (not committed by default)
+├── .gitignore
+└── .github/
+    └── workflows/
+        └── docker-deploy.yml  <-- GitHub Actions config
+
 ```
 
 ## 🔧 API Endpoints
 
-### Authentication
-
-- `POST /api/auth/login` - User login
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/logout` - User logout
-
-### Users
-
-- `GET /api/users` - Get all users
-- `GET /api/users/{id}` - Get user by ID
-- `PUT /api/users/{id}` - Update user
-- `DELETE /api/users/{id}` - Delete user
-
-_Add your specific endpoints here_
+https://weatherapp-khaki-nine.vercel.app/
 
 ## 🧪 Testing
 
@@ -204,11 +147,7 @@ cd frontend
 npm test
 ```
 
-### Integration Tests
 
-```bash
-docker-compose -f docker-compose.test.yml up --build --abort-on-container-exit
-```
 
 ## 🚀 Deployment
 
@@ -217,13 +156,13 @@ docker-compose -f docker-compose.test.yml up --build --abort-on-container-exit
 1. Build the application:
 
 ```bash
-docker-compose -f docker-compose.prod.yml build
+docker-compose  build
 ```
 
 2. Deploy:
 
 ```bash
-docker-compose -f docker-compose.prod.yml up -d
+docker-compose  up -d
 ```
 
 ### CI/CD Pipeline
@@ -240,13 +179,6 @@ Key configuration files:
 - `frontend/src/config/` - React app configuration
 - `docker-compose.yml` - Docker services configuration
 
-### Database Migration
-
-Using Flyway/Liquibase for database migrations:
-
-```bash
-./mvnw flyway:migrate
-```
 
 ## 🤝 Contributing
 
@@ -282,9 +214,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 If you have any questions or need help, please:
 
 - Open an issue on GitHub
-- Contact us at: your-email@example.com
-- Check our documentation: [Link to docs]
-
-## 🔄 Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for a list of changes and version history.
+- Contact us at: your-grohit025@gmail.com
