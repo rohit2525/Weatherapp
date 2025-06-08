@@ -6,10 +6,8 @@ Brief description of what your application does and its purpose.
 
 **Backend:**
 
-- Java 17+
+- Java 21
 - Spring Boot 3.x
-- Spring Data JPA
-- Spring Security
 - Maven/Gradle
 
 **Frontend:**
@@ -18,20 +16,18 @@ Brief description of what your application does and its purpose.
 - TypeScript/JavaScript
 - CSS/Styled Components/Tailwind
 
-**Database:**
 
-- PostgreSQL/MySQL/H2
 
 **DevOps:**
 
 - Docker & Docker Compose
-- GitHub Actions/Jenkins (CI/CD)
+- GitHub Actions
 
 ## 📋 Prerequisites
 
 Before running this application, make sure you have the following installed:
 
-- Java 17 or higher
+- Java 21 
 - Node.js 18+ and npm/yarn
 - Docker and Docker Compose
 - Git
