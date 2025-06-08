@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 
 function App() {
@@ -8,7 +8,9 @@ function App() {
 
     const getWeather = async () => {
         try {
-            const response = await axios.get(`http://localhost:8080/api/v1/weather/forecast?city=${city}`);
+            const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
+            const response = await axios.get(`${apiBaseUrl}/api/v1/weather/forecast?city=${city}`);
+            setForecast(response.data);
             setForecast(response.data);
             setError('');
         } catch (err) {
