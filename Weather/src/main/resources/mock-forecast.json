@@ -1,0 +1,20 @@
+[
+  {
+    "date": "2025-06-08",
+    "highTemp": 32.5,
+    "lowTemp": 24.1,
+    "suggestions": ["Stay hydrated", "Use sunscreen"]
+  },
+  {
+    "date": "2025-06-09",
+    "highTemp": 30.2,
+    "lowTemp": 23.5,
+    "suggestions": ["Carry an umbrella", "Watch for rain"]
+  },
+  {
+    "date": "2025-06-10",
+    "highTemp": 28.9,
+    "lowTemp": 22.8,
+    "suggestions": ["Wear light clothing"]
+  }
+]
