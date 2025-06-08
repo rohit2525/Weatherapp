@@ -1,14 +1,12 @@
-# Use a lightweight base image with Java 17 (or 11 if applicable)
-FROM eclipse-temurin:21-jdk-alpine
-
-# Set working directory in container
+# Stage 1: Build
+FROM maven:3.9.6-eclipse-temurin-21 as builder
 WORKDIR /app
+COPY . .
+RUN mvn clean package -DskipTests
 
-# Copy built JAR file into the container
-COPY target/Weather-*.jar app.jar
-
-# Expose the application port
+# Stage 2: Run
+FROM eclipse-temurin:21
+WORKDIR /app
+COPY --from=builder /app/target/*.jar app.jar
 EXPOSE 8080
-
-# Command to run the Spring Boot app
 ENTRYPOINT ["java", "-jar", "app.jar"]
