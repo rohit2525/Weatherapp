@@ -1,0 +1,7 @@
+weather:
+  api:
+    key: ${WEATHER_API_KEY}
+    url: https://api.openweathermap.org/data/2.5/forecast
+    fallback-path: classpath:mock-forecast.json
+    cnt: 24
+    offline-mode: false

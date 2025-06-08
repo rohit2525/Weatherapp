@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./Weather
+    image: weather-backend
+    container_name: backend
+    ports: # <-- CHANGE THIS FROM 'expose' TO 'ports'
+      - "8080:8080" # Maps host port 8080 to container port 8080
+    networks:
+      - weather-net
+    env_file:
+      - .env  
+
+  frontend:
+    build:
+      context: ./weather-ui
+    image: weather-frontend
+    container_name: frontend
+    ports:
+      - "80:80" # Maps host port 80 to container port 80
+    depends_on:
+      - backend
+    networks:
+      - weather-net
+
+networks:
+  weather-net:
+    driver: bridge
